@@ -98,19 +98,6 @@ const Transactions = () => {
                 </Pressable>
                 <View style={{ display: "flex", flexDirection: "row", gap: 8 }}>
                   {dividedTransactions?.map((_, index) => {
-                    // if (
-                    //   index === currentPage + 1 &&
-                    //   index !== dividedTransactions.length - 1
-                    // ) {
-                    //   return (
-                    //     <PaginationButton
-                    //       key={"pagination-btn" + index}
-                    //       index={index}
-                    //       currentPage={currentPage}
-                    //       onPress={() => setCurrentPage(index)}
-                    //     />
-                    //   );
-                    // }
                     if (
                       index === currentPage ||
                       index === currentPage - 1 ||
@@ -122,7 +109,7 @@ const Transactions = () => {
                           key={"pagination-btn" + index}
                           index={index}
                           currentPage={currentPage}
-                          transactions={transactions}
+                          transactions={dividedTransactions}
                           onPress={() => setCurrentPage(index)}
                         />
                       );

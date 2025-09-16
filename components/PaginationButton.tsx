@@ -7,7 +7,7 @@ interface Props {
   index: number;
   currentPage: number;
   onPress: () => void;
-  transactions: Transaction[] | null;
+  transactions: Transaction[][] | null;
 }
 
 const PaginationButton = (props: Props) => {
