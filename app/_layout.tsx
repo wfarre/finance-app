@@ -8,7 +8,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: kColors.grey900 }}>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: kColors.grey900 }}
+      edges={["top", "left", "right", "bottom"]}
+    >
       <Tabs
         screenOptions={{
           tabBarStyle: {
