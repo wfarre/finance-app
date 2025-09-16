@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 
-import PaginationButton from "@/components/PaginationButton";
+import Pagination from "@/components/Pagination";
 import TransactionCard from "@/components/TransactionCard";
 import { Transaction, TransactionAPI } from "@/models/Transaction";
 
@@ -84,41 +84,11 @@ const Transactions = () => {
           }}
           ListFooterComponent={() => {
             return (
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginTop: 48,
-                  position: "fixed",
-                }}
-              >
-                <Pressable style={[styles.paginationBtn]}>
-                  <FontAwesome name="chevron-left" size={24} color="black" />
-                </Pressable>
-                <View style={{ display: "flex", flexDirection: "row", gap: 8 }}>
-                  {dividedTransactions?.map((_, index) => {
-                    if (
-                      index === currentPage ||
-                      index === currentPage - 1 ||
-                      index === currentPage + 1 ||
-                      index === dividedTransactions.length - 1
-                    )
-                      return (
-                        <PaginationButton
-                          key={"pagination-btn" + index}
-                          index={index}
-                          currentPage={currentPage}
-                          transactions={dividedTransactions}
-                          onPress={() => setCurrentPage(index)}
-                        />
-                      );
-                  })}
-                </View>
-                <Pressable style={[styles.paginationBtn]}>
-                  <FontAwesome name="chevron-right" size={24} color="black" />
-                </Pressable>
-              </View>
+              <Pagination
+                currentPage={currentPage}
+                items={dividedTransactions}
+                setCurrentPage={setCurrentPage}
+              />
             );
           }}
         />
